@@ -1,15 +1,23 @@
+# Use official Node.js image from Docker Hub
 FROM node:14
 
+# Create app directory
 WORKDIR /usr/src/app
 
+# Copy package.json and package-lock.json (if present)
 COPY package*.json ./
 
-RUN npm install --only=production
+# Install all dependencies (including devDependencies)
+RUN npm install
 
+# Copy the rest of your application
 COPY . .
 
+# Build TypeScript
 RUN npm run build
 
+# Expose the port your app runs on
 EXPOSE 3000
 
+# Define the command to run your app using CMD which defines your runtime
 CMD ["npm", "start"]
