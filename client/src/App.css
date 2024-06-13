@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.App {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  color: #BF77F6;
+  font-family: "Open Sans", sans-serif;
+  display: grid;
+  place-items: center;
+  z-index: 1;
+}
+
+#background-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.joinChatContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-color: #BF77F6;
+}
+
+.joinChatContainer h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.joinChatContainer input {
+  width: 210px;
+  height: 40px;
+  margin: 7px;
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  border-color: #BF77F6;
+}
+
+.joinChatContainer button {
+  width: 225px;
+  height: 50px;
+  margin: 7px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  background: #BF77F6;
+  color: #fff;
+  cursor: pointer;
+}
+
+.joinChatContainer button:hover {
+  background: #BF77F6;
+}
+
+.chat-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.user-list {
+  width: 200px;
+  border-right: 1px solid #BF77F6;
+  padding: 10px;
+  background-color: #f5f5f5;
+}
+
+.user-list h3 {
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #263238;
+}
+
+.user-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.user-list .user-item {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.user-list .user-status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-list .user-status.online {
+  background-color: #43a047;
+}
+
+.user-list .user-status.offline {
+  background-color: #d32f2f;
+}
+
+.user-list .user-status.typing {
+  background-color: #ffeb3b;
+}
+
+.chat-window {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.chat-header {
+  background-color: #BF77F6;
+  color: white;
+  padding: 10px;
+}
+
+.chat-body {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #fff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border: none;
+}
+
+.chat-content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-messages {
+  flex: 1;
+}
+
+.chat-footer {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  background-color: #f5f5f5;
+}
+
+.chat-footer input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+}
+
+.chat-footer button {
+  padding: 10px;
+  border: none;
+  background-color: #BF77F6;
+  color: white;
+  cursor: pointer;
+}
+
+.chat-window .chat-body .message-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.chat-window .chat-body .message-container::-webkit-scrollbar {
+  display: none;
+}
+
+.chat-window .chat-body .message {
+  height: auto;
+  padding: 10px;
+  display: flex;
+}
+
+.chat-window .chat-body .message .message-content {
+  width: auto;
+  height: auto;
+  min-height: 40px;
+  max-width: 120px;
+  background-color: #BF77F6;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+#you {
+  justify-content: flex-start;
+}
+
+#you .message-content {
+  justify-content: flex-start;
+}
+
+#you .message-meta {
+  justify-content: flex-start;
+  margin-left: 5px;
+}
+
+#other {
+  justify-content: flex-end;
+}
+
+#other .message-content {
+  justify-content: flex-end;
+  background-color: cornflowerblue;
+}
+
+#other .message-meta {
+  justify-content: flex-end;
+  margin-right: 5px;
+}
+
+.message-meta #author {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.chat-window .chat-body .message .message-meta {
+  display: flex;
+  font-size: 12px;
+}
+
+.hide {
+  opacity: 0 !important;
+}
