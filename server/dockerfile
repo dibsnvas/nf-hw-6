@@ -7,17 +7,14 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json (if present)
 COPY package*.json ./
 
-# Install all dependencies (including devDependencies)
-RUN npm install
+# Install app dependencies
+RUN npm install --only=production
 
-# Copy the rest of your application
+# Bundle app source
 COPY . .
-
-# Build TypeScript
-RUN npm run build
 
 # Expose the port your app runs on
 EXPOSE 3000
 
 # Define the command to run your app using CMD which defines your runtime
-CMD ["npm", "start"]
+CMD ["node", "index.js"]
