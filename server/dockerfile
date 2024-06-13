@@ -1,39 +1,15 @@
-# Build Stage
-FROM node:18 AS build
+FROM node:14
 
-# Set working directory
-WORKDIR /app
+WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install all dependencies including dev dependencies
-RUN npm install
-
-# Install TypeScript globally
-RUN npm install -g typescript
-
-# Copy the rest of the application
-COPY . .
-
-# Run the build script
-RUN npm run build
-
-# Production Stage
-FROM node:18-slim
-
-# Set working directory
-WORKDIR /app
-
-# Copy the built files and package.json from the build stage
-COPY --from=build /app/dist ./dist
-COPY --from=build /app/package*.json ./
-
-# Install only production dependencies
 RUN npm install --only=production
 
-# Expose the port
+COPY . .
+
+RUN npm run build
+
 EXPOSE 3000
 
-# Command to run the application
-CMD ["node", "./index.js"]
+CMD ["npm", "start"]
